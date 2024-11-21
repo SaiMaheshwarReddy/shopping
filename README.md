@@ -15,3 +15,4 @@
 - [ ] font size of the nav tooltip
 - [x] ~~SVG color, stroke is working but want it to inherit~~ changed the icon file itself
 - [ ] add transition to the active nav change
+- [ ] search field UI

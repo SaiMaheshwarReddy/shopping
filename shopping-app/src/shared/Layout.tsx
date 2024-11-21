@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { Chart, History, List, Logo, Cart } from "../assets/images";
+import { Chart, History, List, Logo, Cart } from "@/assets/images";
 import {
   Tooltip,
   TooltipContent,
@@ -69,8 +69,8 @@ const Layout = () => {
     },
   ];
   return (
-    <div className="bg-base w-full h-screen flex justify-between items-center">
-      <div className="bg-white h-full w-23 flex flex-col justify-between items-center py-9">
+    <div className="bg-base w-full h-screen flex justify-between gap-14 items-center">
+      <div className="bg-white h-full min-w-23 flex flex-col justify-between items-center py-9">
         <div>
           <img src={Logo} />
         </div>
@@ -95,7 +95,7 @@ const Layout = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="self-stretch grow mt-9">
         <Outlet />
       </div>
       <div>cart</div>
