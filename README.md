@@ -7,9 +7,11 @@
 ## Needs to be done
 
 - [ ] cart count UI in the nav
+- [x] nav active
 
 ## Can be fixed later
 
 - [ ] fill color for nav icons
 - [ ] font size of the nav tooltip
-- [ ] SVG color, stroke is working but want it to inherit
+- [x] ~~SVG color, stroke is working but want it to inherit~~ changed the icon file itself
+- [ ] add transition to the active nav change

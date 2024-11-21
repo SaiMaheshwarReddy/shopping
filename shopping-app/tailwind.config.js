@@ -9,6 +9,9 @@ export default {
         gray: {
           light: "#454545",
         },
+        primaryYellow: "#F9A109",
+        primaryOrange: "#EB5757",
+        primaryBlue: "#56CCF2",
       },
       spacing: {
         23: "5.875rem",
@@ -18,6 +21,9 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        quickSand: ["Quicksand", "sans"],
       },
     },
   },
