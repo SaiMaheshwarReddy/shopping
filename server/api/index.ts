@@ -12,7 +12,7 @@ AppDataSource.initialize()
 
     app.use(express.json());
     app.get("/", (req, res) => {
-      res.json("Hello World");
+      res.json("Test CI/CD");
     });
     app.use("/api/v1/items", ItemRouter);
 
