@@ -30,4 +30,4 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }} # Add your org ID here if needed
         run: |
           npm install -g vercel
-          vercel --prod --token $VERCEL_TOKEN --project $VERCEL_PROJECT_ID --org $VERCEL_ORG_ID --confirm --force
+          vercel --prod --token $VERCEL_TOKEN --confirm --force
