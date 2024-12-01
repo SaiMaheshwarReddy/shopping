@@ -70,7 +70,7 @@ const Layout = () => {
   ];
   return (
     <div className="bg-base w-full h-screen flex justify-between gap-14 items-center">
-      <div className="bg-white h-full min-w-23 flex flex-col justify-between items-center py-9">
+      <div className="bg-white h-full min-w-23 flex flex-col justify-between items-center py-9 grow shrink basis-[7%]">
         <div>
           <img src={Logo} />
         </div>
@@ -95,10 +95,10 @@ const Layout = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch grow mt-9">
+      <div className="self-stretch grow mt-9 grow-[2] shrink basis-[67%] min-w-[480px]">
         <Outlet />
       </div>
-      <div>cart</div>
+      <div className="grow shrink basis-[26%] min-w-[250px]">cart</div>
     </div>
   );
 };

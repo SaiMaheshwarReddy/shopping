@@ -9,6 +9,7 @@ import List from "./images/list.svg";
 import Chart from "./images/chart.svg";
 import Cart from "./images/cart.svg";
 import Search from "./images/search.svg";
+import Plus from "./images/plus.svg";
 export {
   Logo,
   Bottle,
@@ -21,4 +22,5 @@ export {
   Chart,
   Cart,
   Search,
+  Plus,
 };
