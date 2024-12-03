@@ -15,8 +15,23 @@ export class ItemsController {
 
   public static async create(req: Request, res: Response, next: NextFunction) {
     try {
-      const item = await ItemsService.create(req.body);
+      const { name, description, image_url, category }: Partial<Items> =
+        req.body;
+      const item = await ItemsService.create({
+        name,
+        description,
+        image_url,
+        category,
+      });
       res.status(201).json(item);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  public static async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      const updatedItem = await ItemsService.updateItem();
     } catch (err) {
       next(err);
     }

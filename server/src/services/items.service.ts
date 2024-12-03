@@ -23,22 +23,23 @@ export class ItemsService {
     });
   }
 
-  public static async create(item: any) {
+  public static async create(item: Partial<Items>) {
     const { name, description, image_url, category } = item;
     const findCategory = await CategoryService.getCategory(
       Number(category) || null
     );
     console.log(findCategory, category, "findCategory");
-    if (findCategory) {
-      console.log(findCategory, "cat");
-      const create = ItemsService.itemsRepository.create({
-        name,
-        description,
-        image_url,
-        category: findCategory,
-      });
 
-      return await ItemsService.itemsRepository.save(create);
-    }
+    console.log(findCategory, "cat");
+    const create = ItemsService.itemsRepository.create({
+      name,
+      description,
+      image_url,
+      category: findCategory,
+    });
+
+    return await ItemsService.itemsRepository.save(create);
   }
+
+  public static async updateItem() {}
 }

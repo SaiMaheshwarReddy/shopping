@@ -7,6 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import CartView from "@/pages/ItemsList/CartView";
 
 interface INavItem {
   icon: string;
@@ -95,10 +96,13 @@ const Layout = () => {
           </div>
         </div>
       </div>
-      <div className="self-stretch grow mt-9 grow-[2] shrink basis-[67%] min-w-[480px]">
+      <div className="self-stretch mt-9 grow-[2] shrink basis-[64%] min-w-[480px]">
         <Outlet />
       </div>
-      <div className="grow shrink basis-[26%] min-w-[250px]">cart</div>
+
+      <div className="h-full grow-[1] basis-[30%] min-w-[250px]">
+        <CartView />
+      </div>
     </div>
   );
 };

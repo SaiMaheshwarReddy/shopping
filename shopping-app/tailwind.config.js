@@ -13,6 +13,8 @@ export default {
         primaryYellow: "#F9A109",
         primaryOrange: "#EB5757",
         primaryBlue: "#56CCF2",
+        lightOrange: "#FFF0DE",
+        maroon: "#80485B",
       },
       spacing: {
         23: "5.875rem",

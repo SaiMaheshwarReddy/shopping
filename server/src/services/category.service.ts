@@ -2,7 +2,7 @@ import { AppDataSource } from "../configs/data-source";
 import { Category } from "../entities/Categories";
 
 export class CategoryService {
-  public static readonly categoryRepository =
+  private static readonly categoryRepository =
     AppDataSource.getRepository(Category);
 
   public static async getCategory(id: number | null) {
@@ -11,10 +11,16 @@ export class CategoryService {
       const category = await CategoryService.categoryRepository.findOneBy({
         id: id,
       });
-      //   const asb = await CategoryService.categoryRepository.find();
-      console.log(category, "cc");
+      if (!category) {
+        throw new Error(`Cannot find category with ID ${id}`);
+      }
       return category;
+    } else {
+      throw new Error("Category ID is missing");
     }
-    return null;
+  }
+  public static async getAllCategories() {
+    const categories = CategoryService.categoryRepository.find();
+    return categories;
   }
 }

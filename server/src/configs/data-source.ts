@@ -4,7 +4,6 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 
 const port = process.env.DB_PORT as number | undefined;
-console.log(__dirname);
 const parentDir = path.join(__dirname, "..");
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -14,9 +13,9 @@ export const AppDataSource = new DataSource({
   // username: process.env.DB_USER,
   // password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  synchronize: Boolean(process.env.SYNCHRONIZE),
-  // dropSchema: true,
+  synchronize: process.env.DB_SYNCHRONIZE === "true",
+  // dropSchema: process.env.DB_SYNCHRONIZE === "true",
   entities: [`${parentDir}/entities/*.{ts,js}`],
   migrations: [`${parentDir}/migrations/*.{ts,js}`],
-  logging: Boolean(process.env.LOGGING),
+  logging: process.env.DB_LOGGING === "true",
 });
