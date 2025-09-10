@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ItemsList from "./pages/ItemsList";
+import ItemsList from "./pages/ShoppingItemsList";
 import ShoppingHistory from "./pages/ShoppingHistory";
 import Statistics from "./pages/Statistics";
 import { AppErrorBoundary } from "./shared/AppErrorBoundary";

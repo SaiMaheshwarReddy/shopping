@@ -7,9 +7,11 @@ import {
   ManyToOne,
   JoinColumn,
   ManyToMany,
+  OneToMany,
 } from "typeorm";
 import { Category } from "./Categories";
 import { ShoppingList } from "./ShoppingList";
+import { ShoppingListItem } from "./ShoppingListItem";
 
 @Entity()
 export class Items {
@@ -29,8 +31,14 @@ export class Items {
   @JoinColumn({ name: "category_id" })
   category: Category;
 
-  @ManyToMany(() => ShoppingList, (shoppingList) => shoppingList.items)
-  shoppingList: ShoppingList[];
+  @OneToMany(
+    () => ShoppingListItem,
+    (shoppingListItem) => shoppingListItem.item
+  )
+  shoppingListItems: ShoppingListItem[];
+
+  // @ManyToMany(() => ShoppingList, (shoppingList) => shoppingList.items)
+  // shoppingList: ShoppingList[];
 
   @CreateDateColumn()
   created_at: Date;

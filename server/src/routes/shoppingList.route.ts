@@ -4,4 +4,4 @@ const router = express.Router();
 
 router.post("/create", ShoppingListController.create);
 
-export { router as CategoryRouter };
+export { router as ShoppingListRouter };

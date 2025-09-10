@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Chart, History, List, Logo, Cart } from "@/assets/images";
 import {
@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import CartView from "@/pages/ItemsList/CartView";
+import CartView from "@/pages/ShoppingItemsList/CartView";
 
 interface INavItem {
   icon: string;
@@ -32,7 +32,7 @@ const NavItem = ({
             className="cursor-pointer relative flex justify-center h-11"
             onClick={() => {
               navigate(path);
-              handleActiveItem && handleActiveItem(path);
+              if (handleActiveItem) handleActiveItem(path);
             }}
           >
             <img width="26px" src={icon} />

@@ -2,6 +2,7 @@ import express, { Errback, NextFunction, Request, Response } from "express";
 import { AppDataSource } from "../src/configs/data-source";
 import { ItemRouter } from "../src/routes/items.route";
 import { CategoryRouter } from "../src/routes/categories.route";
+import { ShoppingListRouter } from "../src/routes/shoppingList.route";
 
 interface CustomError extends Error {
   statusCode?: number;
@@ -17,6 +18,7 @@ AppDataSource.initialize()
     });
     app.use("/api/v1/items", ItemRouter);
     app.use("/api/v1/categories", CategoryRouter);
+    app.use("/api/v1/shoppingList", ShoppingListRouter);
 
     // Error handler middleware
     app.use(
