@@ -10,6 +10,11 @@ import Chart from "./images/chart.svg";
 import Cart from "./images/cart.svg";
 import Search from "./images/search.svg";
 import Plus from "./images/plus.svg";
+import Minus from "./images/minus.svg";
+import Trash from "./images/trash.svg";
+import Pencil from "./images/pencil.svg";
+import PlusPrimary from "./images/plus_primary.svg";
+import MinusPrimary from "./images/minus_primary.svg";
 export {
   Logo,
   Bottle,
@@ -23,4 +28,9 @@ export {
   Cart,
   Search,
   Plus,
+  Minus,
+  Trash,
+  Pencil,
+  PlusPrimary,
+  MinusPrimary,
 };

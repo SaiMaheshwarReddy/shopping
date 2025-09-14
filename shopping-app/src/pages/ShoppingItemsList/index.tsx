@@ -1,152 +1,26 @@
-import { Plus, Search } from "@/assets/images";
+import { Search } from "@/assets/images";
 import { Input } from "@/components/ui/input";
 import ItemsByCategory from "./ItemsByCategory";
-import { ItemsByCategoryProps } from "@/lib/utils";
+// import { ItemsByCategoryProps } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import { itemsService } from "@/services/itemsService";
 
 const ItemsList = () => {
-  const itemsByCatData: ItemsByCategoryProps[] = [
-    {
-      categoryId: 1,
-      categoryName: "Vegetables",
-      items: [
-        {
-          id: 1,
-          name: "Potato",
-          description: "",
-          image_url: "",
-          categoryId: 1,
-        },
-        {
-          id: 2,
-          name: "Tomato",
-          description: "",
-          image_url: "",
-          categoryId: 1,
-        },
-        { id: 3, name: "Onion", description: "", image_url: "", categoryId: 1 },
-        {
-          id: 4,
-          name: "Carrot",
-          description: "",
-          image_url: "",
-          categoryId: 1,
-        },
-        {
-          id: 5,
-          name: "Spinach",
-          description: "",
-          image_url: "",
-          categoryId: 1,
-        },
-      ],
-    },
-    {
-      categoryId: 2,
-      categoryName: "Fruits",
-      items: [
-        { id: 6, name: "Apple", description: "", image_url: "", categoryId: 2 },
-        {
-          id: 7,
-          name: "Banana",
-          description: "",
-          image_url: "",
-          categoryId: 2,
-        },
-        { id: 8, name: "Mango", description: "", image_url: "", categoryId: 2 },
-        {
-          id: 9,
-          name: "Orange",
-          description: "",
-          image_url: "",
-          categoryId: 2,
-        },
-        {
-          id: 10,
-          name: "Grapes",
-          description: "",
-          image_url: "",
-          categoryId: 2,
-        },
-      ],
-    },
-    {
-      categoryId: 3,
-      categoryName: "Dairy",
-      items: [
-        { id: 11, name: "Milk", description: "", image_url: "", categoryId: 3 },
-        {
-          id: 12,
-          name: "Cheese",
-          description: "",
-          image_url: "",
-          categoryId: 3,
-        },
-        {
-          id: 13,
-          name: "Butter",
-          description: "",
-          image_url: "",
-          categoryId: 3,
-        },
-        {
-          id: 14,
-          name: "Yogurt",
-          description: "",
-          image_url: "",
-          categoryId: 3,
-        },
-      ],
-    },
-    {
-      categoryId: 4,
-      categoryName: "Bakery",
-      items: [
-        {
-          id: 15,
-          name: "Bread",
-          description: "",
-          image_url: "",
-          categoryId: 4,
-        },
-        {
-          id: 16,
-          name: "Croissant",
-          description: "",
-          image_url: "",
-          categoryId: 4,
-        },
-        {
-          id: 17,
-          name: "Bagel",
-          description: "",
-          image_url: "",
-          categoryId: 4,
-        },
-      ],
-    },
-    {
-      categoryId: 5,
-      categoryName: "Beverages",
-      items: [
-        {
-          id: 18,
-          name: "Coffee",
-          description: "",
-          image_url: "",
-          categoryId: 5,
-        },
-        { id: 19, name: "Tea", description: "", image_url: "", categoryId: 5 },
-        {
-          id: 20,
-          name: "Orange Juice",
-          description: "",
-          image_url: "",
-          categoryId: 5,
-        },
-        { id: 21, name: "Soda", description: "", image_url: "", categoryId: 5 },
-      ],
-    },
-  ];
+  const [searchVal, setSearchVal] = useState("");
+  const [itemsListData, setItemsData] = useState([]);
+
+  const getItems = async () => {
+    const items = await itemsService.getItems();
+    console.log(items, "items");
+    setItemsData(items.data);
+  };
+  useEffect(() => {
+    getItems();
+  }, []);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchVal(e.target.value);
+  };
   return (
     <div className="flex flex-col justify-start items-start gap-14 h-full">
       <div className="flex justify-between items-start gap-16 col-g">
@@ -158,11 +32,13 @@ const ItemsList = () => {
           type="email"
           className="min-w-64"
           placeholder="search item"
+          value={searchVal}
+          onChange={handleSearch}
           icon={<img src={Search} width="100%" />}
         />
       </div>
       <div className="flex flex-col justify-start items-start gap-12 pb-16 overflow-y-auto">
-        {itemsByCatData.map((category) => {
+        {itemsListData.map((category) => {
           return (
             <ItemsByCategory
               categoryId={category.categoryId}

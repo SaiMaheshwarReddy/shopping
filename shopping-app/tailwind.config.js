@@ -8,6 +8,7 @@ export default {
         base: "#FAFAFE",
         gray: {
           200: "#C1C1C4",
+          300: "#828282",
           400: "#454545",
         },
         primaryYellow: "#F9A109",
