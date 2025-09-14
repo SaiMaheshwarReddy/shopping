@@ -1,4 +1,4 @@
-import { Bottle, Pencil } from "@/assets/images";
+import { Bottle, Pencil, ShoppingCart } from "@/assets/images";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import QuantityButton from "@/components/ui/QuantityButton";
@@ -8,8 +8,12 @@ import ItemsByCategoryInCart from "./ItemsByCategoryInCart";
 const CartView = () => {
   const inProgress = false;
   return (
-    <div className="flex h-full flex-col justify-start items-stretch bg-lightOrange  overflow-y-scroll relative">
-      <div className="flex h-full flex-col justify-start items-stretch bg-lightOrange pt-10 px-10 gap-10  overflow-y-scroll ">
+    <div className="flex h-full flex-col justify-start items-stretch bg-lightOrange  overflow-y-scroll">
+      <div
+        className={` flex h-full flex-col justify-${
+          inProgress ? "start" : "start"
+        } items-stretch bg-lightOrange pt-10 px-10 gap-10  overflow-y-scroll `}
+      >
         <div className="bg-maroon rounded-2xl flex justify-between items-start p-5 pl-2 gap-4">
           <img
             src={Bottle}
@@ -43,13 +47,19 @@ const CartView = () => {
             <ItemsByCategoryInCart />
           </div>
         ) : (
-          <div className="mx-auto my-auto font-semibold text-xl">No items</div>
+          <div className="mx-auto font-semibold text-xl flex flex-col items-center justify-end gap-7 grow">
+            <p className="mb-8">No Items</p>
+            <img src={ShoppingCart} width="245px" className="z-20" />
+          </div>
         )}
       </div>
-      <div className="w-full bg-white sticky right-0 bottom-0 px-8 py-4">
+      <div className="w-full bg-white sticky z-10 right-0 bottom-0 px-8 py-4">
         <div className="relative h-11">
           <Input className="w-full h-full" />
-          <Button className="h-full absolute right-0 top-0 font-semibold">
+          <Button
+            className="h-full absolute right-0 top-0 font-semibold "
+            // disabled
+          >
             Save
           </Button>
         </div>
