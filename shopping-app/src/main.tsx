@@ -6,7 +6,7 @@ import { enableMocking } from "./mocks/index.js";
 
 async function startApp() {
   try {
-    await enableMocking();
+    // await enableMocking();
     console.log("✅ MSW setup complete");
   } catch (error) {
     console.error("❌ MSW setup failed:", error);
