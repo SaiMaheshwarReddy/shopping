@@ -10,4 +10,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    exclude: ["msw"],
+  },
+  build: {
+    rollupOptions: {
+      external: ["msw", "msw/node"], // 🚀 tells Rollup "don’t touch these"
+    },
+  },
 });
